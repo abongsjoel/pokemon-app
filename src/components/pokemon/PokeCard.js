@@ -1,24 +1,68 @@
 import React from "react";
 
 import { Card, Space, Tag } from "antd";
+import { capitalize } from "lodash";
 
 const { Meta } = Card;
 
+const _colors = (type) => {
+  switch (type) {
+    case "Water":
+      return "#2db7f5";
+    case "Flying":
+      return "#87d068";
+    case "Fairy":
+      return "#87d068";
+    case "Bug":
+      return "#2db7f5";
+    case "Ghost":
+      return "#f50";
+    case "Ice":
+      return "#f50672";
+    case "Rock":
+      return "#808487";
+    case "Steel":
+      return "#71797E";
+    case "Dragon":
+      return "#6AFB92";
+    case "Fighting":
+      return "#13294B";
+    case "Poison":
+      return "#40fd14";
+    case "Psychic":
+      return "#615981";
+    default:
+      return "default";
+  }
+};
+
 const PokeCard = ({ poke }) => {
+  const zeropad = (val) => {
+    if (val.length === 1) {
+      return `00${val}`;
+    }
+    if (val.length === 2) {
+      return `0${val}`;
+    }
+    return val;
+  };
+
   return (
     <Card
       hoverable={true}
       bordered={false}
       style={{ width: 240 }}
-      cover={<img alt={poke.imgAlt} src={poke.imgSrc} />}
+      cover={
+        <img alt={poke.species} src={poke.sprite} style={{ height: 200 }} />
+      }
     >
-      <p>{`No. ${poke.id}`}</p>
+      <p>{`No. ${zeropad(poke.id.toString())}`}</p>
       <Meta
-        title={poke.title}
+        title={capitalize(poke.species)}
         description={
           <Space size="small">
-            {poke.tags.map((tag) => (
-              <Tag color={tag.color}>{tag.title}</Tag>
+            {poke.types.map((type) => (
+              <Tag color={_colors(type)}>{type}</Tag>
             ))}
           </Space>
         }
