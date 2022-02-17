@@ -4,7 +4,7 @@ import {
   SIDE_NAV_COLLAPSED_WIDTH,
   NAV_TYPE_TOP,
 } from "constants/ThemeConstant";
-import { APP_NAME } from "configs/AppConfig";
+// import { APP_NAME } from "configs/AppConfig";
 import { connect } from "react-redux";
 import utils from "utils";
 import { Grid } from "antd";
@@ -27,20 +27,20 @@ const getLogoWidthGutter = (props, isMobile) => {
   }
 };
 
-const getLogo = (props) => {
-  const { navCollapsed, logoType } = props;
-  if (logoType === "light") {
-    if (navCollapsed) {
-      return "/img/logo-sm-white.png";
-    }
-    return "/img/logo-white.png";
-  }
+// const getLogo = (props) => {
+//   const { navCollapsed, logoType } = props;
+//   if (logoType === "light") {
+//     if (navCollapsed) {
+//       return "/img/logo-sm-white.png";
+//     }
+//     return "/img/logo-white.png";
+//   }
 
-  if (navCollapsed) {
-    return "/img/logo-sm.png";
-  }
-  return "/img/logo.png";
-};
+//   if (navCollapsed) {
+//     return "/img/logo-sm.png";
+//   }
+//   return "/img/logo.png";
+// };
 
 const getLogoDisplay = (isMobile, mobileLogo) => {
   if (isMobile && !mobileLogo) {
