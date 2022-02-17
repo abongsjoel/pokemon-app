@@ -5,8 +5,6 @@ import { Card, Space, Tag } from "antd";
 const { Meta } = Card;
 
 const PokeCard = ({ poke }) => {
-  console.log({ poke });
-
   return (
     <Card
       hoverable={true}
